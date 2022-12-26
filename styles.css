@@ -1,0 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+    transform-box: border-box;
+}
+
+img{
+    width: 64px;
+    height: 64px;
+}

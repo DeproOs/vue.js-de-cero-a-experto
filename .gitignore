@@ -107,3 +107,7 @@ dist
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/VUE-JS.iml
+/.idea/workspace.xml
