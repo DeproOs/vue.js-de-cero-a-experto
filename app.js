@@ -12,6 +12,8 @@ Vue.component('CoinDetail',{
     methods: {
         toggleShowPrices(){
             this.showPrices = !this.showPrices
+
+            this.$emit('change-color', this.showPrices ? 'FF96C8' : '3D3D3D')
         },
         closeShowPrices(){
             this.showPrices = false
@@ -50,6 +52,9 @@ Vue.component('CoinDetail',{
         
         <input type="number" v-model="value">
         <span>{{ convertedValue }}</span>
+        
+        <slot name="text"></slot>
+        <slot name="link"></slot>
         
         <ul v-show=showPrices>
           <li class="uppercase" v-bind:class="{ orange: p.value === coin.price, red: p.value < coin.price, green: p.value > coin.price }" v-for="(p, i) in coin.pricesWithDays" v-bind:key="p.day">
@@ -96,10 +101,8 @@ new Vue({
     },
 
     methods:{
-        toggleShowPrices(){
-            this.showPrices = !this.showPrices
-
-            this.color = this.color.split("").reverse().join("")
+        updateColor(color){
+            this.color = color || this.color.split("").reverse().join("")
         }
     }
 })
